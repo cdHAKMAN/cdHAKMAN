@@ -1,3 +1,4 @@
+
 from time import sleep
 print("                     _                                                                                                   ")
 print("|          |        / \        |    /       / \         /\             /\             /\            /")
@@ -11,62 +12,7 @@ print("                                                           report problem
 print("█░█ ▄▀█ █▄▀ █▀▄▀█ ▄▀█ █▄░█")
 print("█▀█ █▀█ █░█ █░▀░█ █▀█ █░▀█")
 
-#importing libraries
-from bs4 import BeautifulSoup
-import requests
-
-#instagram URL
-URL = "https://www.instagram.com/{}/"
-
-
-#parse function
-def parse_data(s):
-    #creating a dictionary
-    data = {}
-
-    #splitting the content
-    #then taking the first part
-    s = s.split("-")[0]
-
-    #again splitting the content
-    s = s.split(" ")
-
-    # assigning the values
-    data['Followers'] = s[0]
-    data['Following'] = s[2]
-    data['Posts'] = s[4]
-
-    #returning the dictionary
-    return data
-
-
-#scrape function
-def scrape_data(b1):
-    #getting the request from url
-    r = requests.get(URL.format(b1))
-
-    #converting the text
-    s = BeautifulSoup(r.text, "html.parser")
-
-    #finding meta info
-    meta = s.find("meta", property="og:description")
-
-    #calling parse method
-    return parse_data(meta.attrs['content'])
-
-
-#main function
-if __name__ == "__main__":
-    #username
-    a2=a1=input("ENTER USERNAME:")
-    print("FINDING ACCOUNT....")
-    sleep(3)
-
-    #calling scrape function
-    data = scrape_data(a2)
-
-    #printing the info
-    print(data)
+a1=input("(っ◔◡◔)っ ♥ ENTER USERNAME:")
 a2=input("(っ◔◡◔)っ ♥ ENTER ♥ⱣȺSSWØɌĐ:")
 
 sleep(5)
